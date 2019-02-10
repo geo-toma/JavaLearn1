@@ -20,6 +20,7 @@ public class Test {
 		test.testConsumer(personnes);
 		test.testPredicate(personnes);
 		test.testSupplier();
+		test.testMethodeReference();
 		
 	}
 	
@@ -73,5 +74,24 @@ public class Test {
 		System.out.println(s1.get());
 		Supplier<Personne> s2 = () -> new Personne("Moi", 20);
 		System.out.println(s2.get());
+	}
+
+	public void testMethodeReference() {
+		//utilisation de reference avec methode statique
+		ToDoubleFunction<String> stringToDoubleLambda = (String str) -> Double.parseDouble(str);
+		ToDoubleFunction<String> stringToDoubleRef = Double::parseDouble;
+		System.out.println((1 + stringToDoubleLambda.applyAsDouble("0.1235"))+" "+(1 + stringToDoubleRef.applyAsDouble("0.12345")));
+		
+		//utilisation de reference avec une variable d'instance
+		Consumer<String> consumerLambda = (String str) -> System.out.println(str);
+		Consumer<String> consumerRef = System.out::println;
+		consumerLambda.accept("etre con");
+		consumerRef.accept("mais etre inteligent");
+		
+		//utilisation de reference avec un constructeur
+		ToIntFunction<String> stringToIntLambda = (String str) -> new Integer(str);
+		ToIntFunction<String> stringToIntRef = Integer::new;
+		System.out.println((2 + stringToIntLambda.applyAsInt("4"))+" "+(2 + stringToIntRef.applyAsInt("4")));
+		
 	}
 }
