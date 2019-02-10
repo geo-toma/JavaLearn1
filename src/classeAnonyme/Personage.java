@@ -2,7 +2,7 @@ package classeAnonyme;
 
 public abstract class Personage {
 	
-	Soin soin;
+	Soin soin = new AucunSoin();
 	
 	public Personage() {
 	}

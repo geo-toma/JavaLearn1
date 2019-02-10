@@ -5,9 +5,6 @@ public class Guerrier extends Personage {
 	
 	
 	public Guerrier() {
-		//utilisation de la classe anonyme
-		this.soin = new Soin() {
-		};
 	}
 
 

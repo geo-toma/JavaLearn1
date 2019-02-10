@@ -1,9 +1,7 @@
 package classeAnonyme;
-
+@FunctionalInterface
 public interface Soin {
 	
-	default void soigner() {
-		System.out.println("je ne soigne pas");
-	}
+	public void soigner();
 
 }
